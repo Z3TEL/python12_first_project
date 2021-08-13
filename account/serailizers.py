@@ -1,6 +1,6 @@
 from django.contrib.auth import get_user_model, authenticate
 from django.core.mail import send_mail
-from django.utils.crypto import get_random_string
+# from django.utils.crypto import get_random_string
 from rest_framework import serializers
 
 
@@ -74,13 +74,14 @@ class ChangePasswordSerializer(serializers.Serializer):
         user = request.user
         if not request.user.check_password(old_password):
             raise serializers.ValidationError('Ввидете верный пороль')
-        return  old_password
+        return old_password
 
     def validate(self, attrs):
         new_pass1 = attrs.get('new_password')
         new_pass2 = attrs.get('new_password_confirm')
         if new_pass1 != new_pass2:
             raise serializers.ValidationError('Пароли не совпадают')
+        return attrs
 
     def set_new_password(self):
         new_pass = self.validated_data.get('new_password')
@@ -109,18 +110,19 @@ class ForgotPasswordSerializer(serializers.Serializer):
 class ForgotPasswordCompleteSerializer(serializers.Serializer):
     email = serializers.EmailField(required=True)
     code = serializers.CharField(required=True)
-    password = serializers.CharField(max_length=6, required=True)
-    password_confirm = serializers.CharField(max_length=6, required=True)
+    password = serializers.CharField(min_length=6, required=True)
+    password_confirm = serializers.CharField(min_length=6, required=True)
 
     def validate(self, attrs):
         email = attrs.get('email')
         code = attrs.get('code')
         password1 = attrs.get('password')
         password2 = attrs.get('password_confirm')
-        if not User.objects.filter(email=email, activation_code=code).exists():
+        if not User.objects.filter(email=email,
+                                   activation_code=code).exists():
             raise serializers.ValidationError('Пользователь не найден')
         if password1 != password2:
-            raise serializers.ValidationError('Пороли не совпадают')
+            raise serializers.ValidationError('Пароли не совпадают')
         return attrs
 
     def set_new_password(self):
@@ -129,7 +131,6 @@ class ForgotPasswordCompleteSerializer(serializers.Serializer):
         user = User.objects.get(email=email)
         user.set_password(password)
         user.save()
-
 
 class LoginSerializer(serializers.Serializer):
     email = serializers.EmailField(required=True)

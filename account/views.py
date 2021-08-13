@@ -48,8 +48,10 @@ class LogoutView(APIView):
 
 
 class ChangePasswordView(APIView):
+    permission_classes = [IsAuthenticated]
+
     def post(self, request):
-        serializer = ChangePasswordSerializer(data=request.data)
+        serializer = ChangePasswordSerializer(data=request.data, context={'request': request})
         if serializer.is_valid(raise_exception=True):
             serializer.set_new_password()
             return Response('Пороль успешно обнавлён')
@@ -60,7 +62,7 @@ class ForgotPasswordView(APIView):
         serializer = ForgotPasswordSerializer(data=request.data)
         if serializer.is_valid(raise_exception=True):
             serializer.send_verification_email()
-            return Response('Вас выслано сообщение на восстановления')
+            return Response('Вам выслано сообщение на восстановления')
 
 
 
@@ -68,5 +70,5 @@ class ForgotPasswordCompleteView(APIView):
     def post(self, request):
         serializer = ForgotPasswordCompleteSerializer(data=request.data)
         if serializer.is_valid(raise_exception=True):
-            serializer.send_verification_email()
+            serializer.set_new_password()
             return Response('Пороль успешно обнавлён')
