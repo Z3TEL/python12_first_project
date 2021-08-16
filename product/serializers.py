@@ -1,11 +1,11 @@
 from rest_framework import serializers
-from product.models import Product
+from product.models import Product, ProductReview
 
 
 class ProductsSerializer(serializers.ModelSerializer):
     class Meta:
         model = Product
-        fields = ('id', 'title', 'price')
+        fields = ('id', 'title', 'description', 'price')
 
 
 
@@ -25,3 +25,20 @@ class CreateProductSerializer(serializers.ModelSerializer):
         return price
 
     # def validate(self):
+
+
+class ReviewSerializer(serializers.ModelSerializer):
+    author = serializers.PrimaryKeyRelatedField(read_only=True)
+    class Meta:
+        model = ProductReview
+        fields = ('id','author','product', 'text', 'rating','created_at')
+
+    def validate_rating(self, rating):
+        if rating not in range (1,6):
+            raise serializers.ValidationError('Рейтинг может быть от 1 до 5')
+        return rating
+
+    def create(self, validated_data):
+        request = self.context.get('request')
+        validated_data['author'] = request.user
+        return super().create(validated_data)

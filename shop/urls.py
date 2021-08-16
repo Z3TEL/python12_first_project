@@ -17,16 +17,29 @@ from django.conf import settings
 from django.contrib import admin
 from django.urls import path, include
 from django.contrib.staticfiles.urls import static
-from product.views import (test_view, products_list, ProductsListView, ProductDetailsView, CreateProductView,
-                           UpdateProductView, DestroyProductView)
+from rest_framework.routers import DefaultRouter
+from product.views import ProductViewSet, ReviewViewSet
+
+router = DefaultRouter()
+router.register('products', ProductViewSet)
+router.register('reviews', ReviewViewSet)
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', test_view),
-    path('api/v1/products/', ProductsListView.as_view()),
-    path('api/v1/products/details/<int:pk>/', ProductDetailsView.as_view()),
-    path('api/v1/products/create/', CreateProductView.as_view()),
-    path('api/v1/products/update/<int:pk>/', UpdateProductView.as_view()),
-    path('api/v1/products/delete/<int:pk>/', DestroyProductView.as_view()),
-    path('api/v1/', include('account.urls'))
+    path('api/v1/', include(router.urls)),
+    # path('api/v1/products/', ProductViewSet.as_view(
+    #     {'post': 'create', 'get': 'list'}
+    # )),
+    # path('api/v1/products/<int:pk>/', ProductViewSet.as_view(
+    #     {'get': 'retrieve', 'put': 'update',
+    #      'patch': 'partial_update', 'delete': 'destroy'}
+    # )),
+    # path('api/v1/reviews/', ReviewViewSet.as_view(
+    #     {'post': 'create', 'get': 'list'}
+    # )),
+    # path('api/v1/reviews/<int:pk>/', ReviewViewSet.as_view(
+    #     {'get': 'retrieve', 'put': 'update',
+    #      'patch': 'partial_update', 'delete': 'destroy'}
+    # )),    path('api/v1/', include('account.urls'))
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

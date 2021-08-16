@@ -2,11 +2,12 @@ from django.http import HttpResponse
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework.generics import ListAPIView, RetrieveAPIView, CreateAPIView, UpdateAPIView, DestroyAPIView
-
-from product.models import Product
-from product.serializers import ProductsSerializer, ProductDetailsSerializer, CreateProductSerializer
-from rest_framework.decorators import api_view
-
+from rest_framework import viewsets, mixins
+from product.models import *
+from product.permissions import IsAuthorOrIsAdmin
+from product.serializers import ProductsSerializer, ProductDetailsSerializer, CreateProductSerializer, ReviewSerializer
+from rest_framework.decorators import api_view, action
+from rest_framework.permissions import IsAdminUser, IsAuthenticated
 
 # Create your views here.
 def test_view(request):
@@ -54,8 +55,72 @@ class DestroyProductView(DestroyAPIView):
 
 
 
+class ProductViewSet(viewsets.ModelViewSet):
+    queryset = Product.objects.all()
 
-# TODO: Создовать, редоктировать и удалять могут только админы (premission)
+
+
+
+    # def create(self, request, *args, **kwargs):
+    #     if not (request.user.is_authenticated and request.user.is_staff):
+    #         return Response('Создавать продукты может только админ', status=403)
+    #     data = request.data
+    #     serializer = self.get_serializer_class(data=data,
+    #                                            context={'request': request})
+    #     serializer.is_valid(raise_exception=True)
+    #     return Response(serializer.data, status=201)
+
+
+
+
+    def get_serializer_class(self):
+        if self.action == 'list':
+            return ProductsSerializer
+        elif self.action == 'retrieve':
+            return ProductDetailsSerializer
+        return CreateProductSerializer
+
+
+    def get_permissions(self):
+        if self.action in ['create', 'update', 'partial_update', 'destroy']:
+            return [IsAdminUser()]
+        return []
+
+
+# CRUD(Create, Retrieve, Update, Delete)
+#         POST    GET     PUT/PATCH  DELETE
+
+
+# создает отзыв только залогиненый пользаватель
+# редактировать может только админ или автор
+class ReviewViewSet(mixins.CreateModelMixin,
+                    mixins.DestroyModelMixin,
+                    mixins.UpdateModelMixin,
+                    viewsets.GenericViewSet):
+    queryset = ProductReview.objects.all()
+    serializer_class = ReviewSerializer
+
+
+    def get_permissions(self):
+        if self.action == 'create':
+            return [IsAuthenticated()]
+        elif self.action in ['update', 'partial_update', 'destroy']:
+            return [IsAuthenticated(), IsAuthorOrIsAdmin()]
+        return []
+
+    # api/v1/products/id
+    # api/v1/products/id/reviews/
+    @action(['GET'], detail=True)
+    def reviews(self, request, pk=None):
+        product = self.get_object()
+        # reviews = ProductReview.objects.filter(product=product)
+        reviews = product.reviews.all()
+        serializer = ReviewSerializer(reviews, many=True)
+        return Response(serializer.data, status=200)
+
+
+
+# TODO: ViewSet для отзывов, листинг будет в товарах
 # TODO: Пагинация (разбивка листинга)
 # TODO: Фильтрация
 # TODO: Поиск продуктов по названию и описанию

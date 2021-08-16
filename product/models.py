@@ -16,7 +16,7 @@ class Product(models.Model):
         return self.title
 
 
-class ProductsReview(models.Model):
+class ProductReview(models.Model):
     product = models.ForeignKey(Product,
                                 on_delete=models.CASCADE,
                                 related_name='reviews')
