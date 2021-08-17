@@ -8,6 +8,8 @@ from product.permissions import IsAuthorOrIsAdmin
 from product.serializers import ProductsSerializer, ProductDetailsSerializer, CreateProductSerializer, ReviewSerializer
 from rest_framework.decorators import api_view, action
 from rest_framework.permissions import IsAdminUser, IsAuthenticated
+from django_filters import rest_framework as filters
+from rest_framework import filters as rest_filters
 
 # Create your views here.
 def test_view(request):
@@ -28,48 +30,60 @@ class ProductsListView(APIView):
         return Response(serializer.data)
 
 
-class ProductsListView(ListAPIView):
-    queryset = Product.objects.all()
-    serializer_class = ProductsSerializer
+# class ProductsListView(ListAPIView):
+#     queryset = Product.objects.all()
+#     serializer_class = ProductsSerializer
+#
+#
+# class ProductDetailsView(RetrieveAPIView):
+#     queryset = Product.objects.all()
+#     serializer_class = ProductDetailsSerializer
+#
+#
+# class CreateProductView(CreateAPIView):
+#     queryset = Product.objects.all()
+#     serializer_class = CreateProductSerializer
+#
+#
+# class UpdateProductView(UpdateAPIView):
+#     queryset = Product.objects.all()
+#     serializer_class = CreateProductSerializer
+#
+#
+# class DestroyProductView(DestroyAPIView):
+#     queryset = Product.objects.all()
+#     serializer_class = CreateProductSerializer
+#
+#
 
 
-class ProductDetailsView(RetrieveAPIView):
-    queryset = Product.objects.all()
-    serializer_class = ProductDetailsSerializer
-
-
-class CreateProductView(CreateAPIView):
-    queryset = Product.objects.all()
-    serializer_class = CreateProductSerializer
-
-
-class UpdateProductView(UpdateAPIView):
-    queryset = Product.objects.all()
-    serializer_class = CreateProductSerializer
-
-
-class DestroyProductView(DestroyAPIView):
-    queryset = Product.objects.all()
-    serializer_class = CreateProductSerializer
-
-
+class ProductFilter(filters.FilterSet):
+    price_from = filters.NumberFilter('price', 'gte')
+    price_to = filters.NumberFilter('price', 'lte')
+    class Meta:
+        model = Product
+        fields = ('price_from', 'price_to')
 
 
 class ProductViewSet(viewsets.ModelViewSet):
     queryset = Product.objects.all()
+    filter_backends = [filters.DjangoFilterBackend, rest_filters.SearchFilter, rest_filters.OrderingFilter]
+    # filterset_fields = ('price')
+    filterset_class = ProductFilter
+    search_fields = ['title', 'description']
+    ordering_fields = ['title', 'price']
 
 
+    # api/v1/products/
+    # api/v1/products/?price_from=10000&price_to=15000
 
 
-    # def create(self, request, *args, **kwargs):
-    #     if not (request.user.is_authenticated and request.user.is_staff):
-    #         return Response('Создавать продукты может только админ', status=403)
-    #     data = request.data
-    #     serializer = self.get_serializer_class(data=data,
-    #                                            context={'request': request})
-    #     serializer.is_valid(raise_exception=True)
-    #     return Response(serializer.data, status=201)
-
+    # def get_queryset(self):
+    #     queryset = super().get_queryset()
+    #     price_from = self.request.query_params.get('price_from')
+    #     price_to = self.request.query_params.get('price_to')
+    #     queryset = queryset.filter(price__gte=price_from, price__lte=price_to)
+    #     return queryset
 
 
 
@@ -120,21 +134,17 @@ class ReviewViewSet(mixins.CreateModelMixin,
 
 
 
-# TODO: ViewSet для отзывов, листинг будет в товарах
-# TODO: Пагинация (разбивка листинга)
-# TODO: Фильтрация
-# TODO: Поиск продуктов по названию и описанию
 # TODO: Тесты
 # TODO: Ограничение кол-во запросов
-# TODO: Отзывы
-# TODO: Разобрать взаимодействие
+# TODO: Документация
+# TODO: README
 
 
 # REST - архитектурный подход
 # 1. модель клиент -сервер
 # 2. Отсутствие состояние
 # 3. Кеширование
-# 4. Едигообразин интерфейса
+# 4. Единообразин интерфейса
 #     1. Определение ресурсов
 #       URI('api/v1/products/1') - это путь
 #     2. Управление ресурсами через представление

@@ -18,6 +18,8 @@ from django.contrib import admin
 from django.urls import path, include
 from django.contrib.staticfiles.urls import static
 from rest_framework.routers import DefaultRouter
+
+import account
 from product.views import ProductViewSet, ReviewViewSet
 
 router = DefaultRouter()
@@ -28,6 +30,7 @@ router.register('reviews', ReviewViewSet)
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/v1/', include(router.urls)),
+    path('api/v1/', include('account.urls')),
     # path('api/v1/products/', ProductViewSet.as_view(
     #     {'post': 'create', 'get': 'list'}
     # )),
