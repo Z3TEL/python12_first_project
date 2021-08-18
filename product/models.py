@@ -13,7 +13,7 @@ class Product(models.Model):
     image = models.ImageField(upload_to='products', null=True, blank=True)
 
     class Meta:
-        ordering = ['title', 'price', ]
+        ordering = ['title', 'price']
 
     def __str__(self):
         return self.title
