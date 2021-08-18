@@ -19,7 +19,7 @@ class CreateProductSerializer(serializers.ModelSerializer):
         model = Product
         fields = '__all__'
 
-    def validated_price(self, price):
+    def validate_price(self, price):
         if price < 0:
             raise serializers.ValidationError('Цена не может быть отрицательной')
         return price

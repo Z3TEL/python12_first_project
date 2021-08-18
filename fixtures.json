@@ -1,0 +1,927 @@
+[
+{
+  "model": "admin.logentry",
+  "pk": 1,
+  "fields": {
+    "action_time": "2021-08-06T14:16:06.176Z",
+    "user": "sssss@mail.ru",
+    "content_type": 7,
+    "object_id": "1",
+    "object_repr": "Asus ROG Srix Scar G17",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 2,
+  "fields": {
+    "action_time": "2021-08-06T14:16:09.691Z",
+    "user": "sssss@mail.ru",
+    "content_type": 7,
+    "object_id": "1",
+    "object_repr": "Asus ROG Srix Scar G17",
+    "action_flag": 2,
+    "change_message": "[]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 3,
+  "fields": {
+    "action_time": "2021-08-06T14:17:50.387Z",
+    "user": "sssss@mail.ru",
+    "content_type": 7,
+    "object_id": "2",
+    "object_repr": "Apple MacBook Pro 13 (Late 2020)",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 4,
+  "fields": {
+    "action_time": "2021-08-06T14:19:19.026Z",
+    "user": "sssss@mail.ru",
+    "content_type": 7,
+    "object_id": "3",
+    "object_repr": "Acer Nitro 5 AN515-55 I585SGN",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 5,
+  "fields": {
+    "action_time": "2021-08-06T14:20:19.333Z",
+    "user": "sssss@mail.ru",
+    "content_type": 7,
+    "object_id": "4",
+    "object_repr": "Dell Vostro 3500",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 6,
+  "fields": {
+    "action_time": "2021-08-06T14:21:30.210Z",
+    "user": "sssss@mail.ru",
+    "content_type": 7,
+    "object_id": "5",
+    "object_repr": "Lenovo S145-15API",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 7,
+  "fields": {
+    "action_time": "2021-08-06T14:22:48.176Z",
+    "user": "sssss@mail.ru",
+    "content_type": 7,
+    "object_id": "6",
+    "object_repr": "HP 250 G7",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 8,
+  "fields": {
+    "action_time": "2021-08-06T14:23:21.295Z",
+    "user": "sssss@mail.ru",
+    "content_type": 7,
+    "object_id": "1",
+    "object_repr": "Asus ROG Srix Scar G17",
+    "action_flag": 2,
+    "change_message": "[]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 9,
+  "fields": {
+    "action_time": "2021-08-11T14:36:01.467Z",
+    "user": "sssss@mail.ru",
+    "content_type": 6,
+    "object_id": "test@gmail.ru",
+    "object_repr": "test@gmail.ru",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 10,
+  "fields": {
+    "action_time": "2021-08-11T14:36:01.483Z",
+    "user": "sssss@mail.ru",
+    "content_type": 6,
+    "object_id": "test1@gmail.ru",
+    "object_repr": "test1@gmail.ru",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 11,
+  "fields": {
+    "action_time": "2021-08-11T14:36:01.487Z",
+    "user": "sssss@mail.ru",
+    "content_type": 6,
+    "object_id": "test1123@gmail.ru",
+    "object_repr": "test1123@gmail.ru",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 12,
+  "fields": {
+    "action_time": "2021-08-11T15:05:04.859Z",
+    "user": "sssss@mail.ru",
+    "content_type": 6,
+    "object_id": "test1@gmail.ru",
+    "object_repr": "test1@gmail.ru",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 13,
+  "fields": {
+    "action_time": "2021-08-16T13:08:34.454Z",
+    "user": "sssss@mail.ru",
+    "content_type": 6,
+    "object_id": "test1@gmail.ru",
+    "object_repr": "test1@gmail.ru",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 14,
+  "fields": {
+    "action_time": "2021-08-17T13:24:15.180Z",
+    "user": "sssss@mail.ru",
+    "content_type": 6,
+    "object_id": "test1232@mail.ru",
+    "object_repr": "test1232@mail.ru",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Password\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 15,
+  "fields": {
+    "action_time": "2021-08-17T13:40:37.126Z",
+    "user": "sssss@mail.ru",
+    "content_type": 6,
+    "object_id": "test1232@mail.ru",
+    "object_repr": "test1232@mail.ru",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 1,
+  "fields": {
+    "name": "Can add log entry",
+    "content_type": 1,
+    "codename": "add_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 2,
+  "fields": {
+    "name": "Can change log entry",
+    "content_type": 1,
+    "codename": "change_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 3,
+  "fields": {
+    "name": "Can delete log entry",
+    "content_type": 1,
+    "codename": "delete_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 4,
+  "fields": {
+    "name": "Can view log entry",
+    "content_type": 1,
+    "codename": "view_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 5,
+  "fields": {
+    "name": "Can add permission",
+    "content_type": 2,
+    "codename": "add_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 6,
+  "fields": {
+    "name": "Can change permission",
+    "content_type": 2,
+    "codename": "change_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 7,
+  "fields": {
+    "name": "Can delete permission",
+    "content_type": 2,
+    "codename": "delete_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 8,
+  "fields": {
+    "name": "Can view permission",
+    "content_type": 2,
+    "codename": "view_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 9,
+  "fields": {
+    "name": "Can add group",
+    "content_type": 3,
+    "codename": "add_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 10,
+  "fields": {
+    "name": "Can change group",
+    "content_type": 3,
+    "codename": "change_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 11,
+  "fields": {
+    "name": "Can delete group",
+    "content_type": 3,
+    "codename": "delete_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 12,
+  "fields": {
+    "name": "Can view group",
+    "content_type": 3,
+    "codename": "view_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 13,
+  "fields": {
+    "name": "Can add content type",
+    "content_type": 4,
+    "codename": "add_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 14,
+  "fields": {
+    "name": "Can change content type",
+    "content_type": 4,
+    "codename": "change_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 15,
+  "fields": {
+    "name": "Can delete content type",
+    "content_type": 4,
+    "codename": "delete_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 16,
+  "fields": {
+    "name": "Can view content type",
+    "content_type": 4,
+    "codename": "view_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 17,
+  "fields": {
+    "name": "Can add session",
+    "content_type": 5,
+    "codename": "add_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 18,
+  "fields": {
+    "name": "Can change session",
+    "content_type": 5,
+    "codename": "change_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 19,
+  "fields": {
+    "name": "Can delete session",
+    "content_type": 5,
+    "codename": "delete_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 20,
+  "fields": {
+    "name": "Can view session",
+    "content_type": 5,
+    "codename": "view_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 21,
+  "fields": {
+    "name": "Can add user",
+    "content_type": 6,
+    "codename": "add_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 22,
+  "fields": {
+    "name": "Can change user",
+    "content_type": 6,
+    "codename": "change_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 23,
+  "fields": {
+    "name": "Can delete user",
+    "content_type": 6,
+    "codename": "delete_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 24,
+  "fields": {
+    "name": "Can view user",
+    "content_type": 6,
+    "codename": "view_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 25,
+  "fields": {
+    "name": "Can add product",
+    "content_type": 7,
+    "codename": "add_product"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 26,
+  "fields": {
+    "name": "Can change product",
+    "content_type": 7,
+    "codename": "change_product"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 27,
+  "fields": {
+    "name": "Can delete product",
+    "content_type": 7,
+    "codename": "delete_product"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 28,
+  "fields": {
+    "name": "Can view product",
+    "content_type": 7,
+    "codename": "view_product"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 29,
+  "fields": {
+    "name": "Can add products review",
+    "content_type": 8,
+    "codename": "add_productsreview"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 30,
+  "fields": {
+    "name": "Can change products review",
+    "content_type": 8,
+    "codename": "change_productsreview"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 31,
+  "fields": {
+    "name": "Can delete products review",
+    "content_type": 8,
+    "codename": "delete_productsreview"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 32,
+  "fields": {
+    "name": "Can view products review",
+    "content_type": 8,
+    "codename": "view_productsreview"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 33,
+  "fields": {
+    "name": "Can add order item",
+    "content_type": 9,
+    "codename": "add_orderitem"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 34,
+  "fields": {
+    "name": "Can change order item",
+    "content_type": 9,
+    "codename": "change_orderitem"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 35,
+  "fields": {
+    "name": "Can delete order item",
+    "content_type": 9,
+    "codename": "delete_orderitem"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 36,
+  "fields": {
+    "name": "Can view order item",
+    "content_type": 9,
+    "codename": "view_orderitem"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 37,
+  "fields": {
+    "name": "Can add order",
+    "content_type": 10,
+    "codename": "add_order"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 38,
+  "fields": {
+    "name": "Can change order",
+    "content_type": 10,
+    "codename": "change_order"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 39,
+  "fields": {
+    "name": "Can delete order",
+    "content_type": 10,
+    "codename": "delete_order"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 40,
+  "fields": {
+    "name": "Can view order",
+    "content_type": 10,
+    "codename": "view_order"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 41,
+  "fields": {
+    "name": "Can add Token",
+    "content_type": 11,
+    "codename": "add_token"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 42,
+  "fields": {
+    "name": "Can change Token",
+    "content_type": 11,
+    "codename": "change_token"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 43,
+  "fields": {
+    "name": "Can delete Token",
+    "content_type": 11,
+    "codename": "delete_token"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 44,
+  "fields": {
+    "name": "Can view Token",
+    "content_type": 11,
+    "codename": "view_token"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 45,
+  "fields": {
+    "name": "Can add token",
+    "content_type": 12,
+    "codename": "add_tokenproxy"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 46,
+  "fields": {
+    "name": "Can change token",
+    "content_type": 12,
+    "codename": "change_tokenproxy"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 47,
+  "fields": {
+    "name": "Can delete token",
+    "content_type": 12,
+    "codename": "delete_tokenproxy"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 48,
+  "fields": {
+    "name": "Can view token",
+    "content_type": 12,
+    "codename": "view_tokenproxy"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 49,
+  "fields": {
+    "name": "Can add product review",
+    "content_type": 8,
+    "codename": "add_productreview"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 50,
+  "fields": {
+    "name": "Can change product review",
+    "content_type": 8,
+    "codename": "change_productreview"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 51,
+  "fields": {
+    "name": "Can delete product review",
+    "content_type": 8,
+    "codename": "delete_productreview"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 52,
+  "fields": {
+    "name": "Can view product review",
+    "content_type": 8,
+    "codename": "view_productreview"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 1,
+  "fields": {
+    "app_label": "admin",
+    "model": "logentry"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 2,
+  "fields": {
+    "app_label": "auth",
+    "model": "permission"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 3,
+  "fields": {
+    "app_label": "auth",
+    "model": "group"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 4,
+  "fields": {
+    "app_label": "contenttypes",
+    "model": "contenttype"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 5,
+  "fields": {
+    "app_label": "sessions",
+    "model": "session"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 6,
+  "fields": {
+    "app_label": "account",
+    "model": "user"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 7,
+  "fields": {
+    "app_label": "product",
+    "model": "product"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 8,
+  "fields": {
+    "app_label": "product",
+    "model": "productreview"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 9,
+  "fields": {
+    "app_label": "order",
+    "model": "orderitem"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 10,
+  "fields": {
+    "app_label": "order",
+    "model": "order"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 11,
+  "fields": {
+    "app_label": "authtoken",
+    "model": "token"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 12,
+  "fields": {
+    "app_label": "authtoken",
+    "model": "tokenproxy"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "du57dbspv8255bghy3pn3habowp8kgc8",
+  "fields": {
+    "session_data": ".eJxVjDkOwjAUBe_iGll2vlcqlJ4zRN8bCYRYsuMKcXewlAJeOzPvRSZs-zy1Gsu0BHImte_yxGWlpZHTL3foH3HrUrjjdsvU520vi6NdoQet9JpDXMfD_TuYsc7fWirQwiUBCZQOSisTBsY9Z1xa48BjhCEJLY0FkzhCYlYOwjjjuQUuPHl_ACMmO5Y:1mBzxh:TiMSIIY-B6K8ojoNFaUFW9xV3q_fIr7s2BP2sPuam0k",
+    "expire_date": "2021-08-20T13:32:33.793Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "e8zpf0ulgtmhmiz4ffu1on3imckyg43n",
+  "fields": {
+    "session_data": ".eJxVzMEOwiAQBNB_4WxI1xYKnkzvfgPZZcFWa0lKORn_3ZL0oHOdN_MWDss2upLD6iYWF5Frri-cZrkWcfrtCf0zLBXxA5d7kj4t2zqRrEQebZa3xGEeDvt3MGIe97VWtmPq0bIJ0GluQEUTrYKoiTRG4tYgR0sA7FvfMAVQSp9p5z00QXy-aJQ9mQ:1mFcFX:E0Xj0Dnwfsp-lC2JvV35J6sfcjIwiK-qieg3eQysURg",
+    "expire_date": "2021-08-30T13:01:55.604Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "f4wel2f6u8t8rjgd7dmtjstxqeqjd2un",
+  "fields": {
+    "session_data": ".eJxVjDkOwjAUBe_iGll2vlcqlJ4zRN8bCYRYsuMKcXewlAJeOzPvRSZs-zy1Gsu0BHImte_yxGWlpZHTL3foH3HrUrjjdsvU520vi6NdoQet9JpDXMfD_TuYsc7fWirQwiUBCZQOSisTBsY9Z1xa48BjhCEJLY0FkzhCYlYOwjjjuQUuPHl_ACMmO5Y:1mDRP3:pDjhZHIQiajKyldOb8uX9PIpwEcMJwgnwHHdbjbXTho",
+    "expire_date": "2021-08-24T13:02:45.626Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "rqy60x7uxk8slliuufdiq7bi4wxr3jqy",
+  "fields": {
+    "session_data": ".eJxVjDkOwjAUBe_iGll2vlcqlJ4zRN8bCYRYsuMKcXewlAJeOzPvRSZs-zy1Gsu0BHImte_yxGWlpZHTL3foH3HrUrjjdsvU520vi6NdoQet9JpDXMfD_TuYsc7fWirQwiUBCZQOSisTBsY9Z1xa48BjhCEJLY0FkzhCYlYOwjjjuQUuPHl_ACMmO5Y:1mDpKM:Eg0I1Go0c-k5lDqjfPMMSOCY0QsEbReReNhKDls-enU",
+    "expire_date": "2021-08-25T14:35:30.727Z"
+  }
+},
+{
+  "model": "authtoken.token",
+  "pk": "1a1033a7e57a7b04f2ef0b46e73e807099a5228b",
+  "fields": {
+    "user": "test1234@mail.ru",
+    "created": "2021-08-17T13:37:51.693Z"
+  }
+},
+{
+  "model": "authtoken.token",
+  "pk": "fe09d18b14313301d1b8d030596ed72a8b0d46a7",
+  "fields": {
+    "user": "sssss@mail.ru",
+    "created": "2021-08-16T13:37:37.234Z"
+  }
+},
+{
+  "model": "account.user",
+  "pk": "sssss@mail.ru",
+  "fields": {
+    "password": "pbkdf2_sha256$260000$93CsD6ObvfN8UE7BEg6GeG$FOfrkmXkFDUIDlWw0uEZ/hAKtfM8pWAhLjJZ70Byz14=",
+    "last_login": "2021-08-16T13:01:55.600Z",
+    "name": "eldiyar",
+    "last_name": "",
+    "is_active": true,
+    "is_staff": true,
+    "activation_code": ""
+  }
+},
+{
+  "model": "account.user",
+  "pk": "test1234@mail.ru",
+  "fields": {
+    "password": "pbkdf2_sha256$260000$DRXbHu1HBkBRCIUareKNGk$Zz9DDLEiael7YTYs5ZbM3zs8R0aeaYNdA+eK9Vi//ko=",
+    "last_login": null,
+    "name": "ZET3",
+    "last_name": "",
+    "is_active": true,
+    "is_staff": false,
+    "activation_code": ""
+  }
+},
+{
+  "model": "product.product",
+  "pk": 2,
+  "fields": {
+    "title": "Apple MacBook Pro 13 (Late 2020)",
+    "description": "процессор: Apple M1, объем оперативной памяти: 16 ГБ, накопитель: SSD 256 ГБ, встроенная видеокарта: Apple graphics 8-core, экран: 13.3\" (2560x1600), IPS матрица, время работы от аккумулятора: 20 ч, операционная система: macOS, микрофон/наушники Combo, Thunderbolt/USB 4 x 2, Wi-Fi, Bluetooth, pазмеры: 304.1x212.4x15.6 мм, вес: 1.4 кг",
+    "price": "138220.00",
+    "image": ""
+  }
+},
+{
+  "model": "product.product",
+  "pk": 3,
+  "fields": {
+    "title": "Acer Nitro 5 AN515-55 I585SGN",
+    "description": "Операционная система DOS; процессор Intel Core i5 (4/8) 2500 MHz; видеоадаптер Nvidia GTX1660 Ti 6GB GDDR6; экран 15.6\" IPS 1920x1080; оперативная память 16 GB DDR4; накопитель HDD 1000 GB + SSD 256 GB; DVDRW нет; вес от 2.3 кг",
+    "price": "91260.00",
+    "image": ""
+  }
+},
+{
+  "model": "product.product",
+  "pk": 4,
+  "fields": {
+    "title": "Dell Vostro 3500",
+    "description": "Тип: ноутбук; Операционная система: DOS; Процессор: Intel Core i5-1135G7; Разрешение экрана: 1920х1080 Full HD; Графический контроллер: Intel Iris Graphics; Объем оперативной памяти: 12 Gb DDR4; Объем накопителя HDD: 1000 Gb; Объем накопителя SSD: 256 Gb; Вес: от 1.78 кг",
+    "price": "70040.00",
+    "image": ""
+  }
+},
+{
+  "model": "product.product",
+  "pk": 5,
+  "fields": {
+    "title": "Lenovo S145-15API",
+    "description": "Операционная система DOS; 2х-ядерный процессор 1.2 Ггц; видеоадаптер встроенный; экран 15.6\" TN 1366x768; объем оперативной памяти 4 Гб; накопитель SSD 240 Гб; вес от 1.8 кг",
+    "price": "33370.00",
+    "image": ""
+  }
+},
+{
+  "model": "product.product",
+  "pk": 6,
+  "fields": {
+    "title": "HP 250 G7",
+    "description": "Операционная система DOS; 2х-ядерный процессор 2.2 ГГц; видеоадаптер дискретный; диагональ экрана 15.6\" SVA 1920x1080; объем оперативной памяти 8 Гб; накопитель HDD 1000 Гб + SSD 128 Гб; вес от 1.78 кг",
+    "price": "54420.00",
+    "image": ""
+  }
+},
+{
+  "model": "product.product",
+  "pk": 7,
+  "fields": {
+    "title": "MSI GF63 Thin 9SCSR-898XRU",
+    "description": "Тип: ноутбук; Операционная система: DOS; Процессор: Intel Core i5-9300H; Разрешение экрана: 1920x1080 Full HD; Графический контроллер: Nvidia GTX 1650Ti; Объем оперативной памяти: 8 Gb DDR4; Объем накопителя HDD: 1000 Gb; Вес: от 1.86 кг",
+    "price": "72690.00",
+    "image": "products/msi_notebook.jpg"
+  }
+},
+{
+  "model": "product.product",
+  "pk": 8,
+  "fields": {
+    "title": "Samsung A21",
+    "description": "Норм тел",
+    "price": "15000.00",
+    "image": ""
+  }
+},
+{
+  "model": "product.productreview",
+  "pk": 1,
+  "fields": {
+    "product": 4,
+    "author": "sssss@mail.ru",
+    "text": "норм",
+    "rating": 4,
+    "created_at": "2021-08-16T15:54:47.412Z"
+  }
+},
+{
+  "model": "product.productreview",
+  "pk": 2,
+  "fields": {
+    "product": 8,
+    "author": "test1234@mail.ru",
+    "text": "лучше айфона",
+    "rating": 4,
+    "created_at": "2021-08-17T13:39:05.028Z"
+  }
+}
+]
