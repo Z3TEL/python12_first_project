@@ -23,7 +23,9 @@ from django.contrib.auth import get_user_model
 from django.urls import reverse
 from rest_framework.authtoken.models import Token
 from rest_framework.test import APIClient, APITestCase
-from .models import Product
+
+from . import serializers
+from .models import Product, ProductReview
 
 User = get_user_model()
 # Arrange
@@ -188,7 +190,153 @@ class TestProducts(TestCase):
 
 
 
+
+class TestReviews(APITestCase):
+    def setUp(self)-> None:
+        self.user = User.objects.create_user('test32@mail.com',
+                                             '1234',
+                                             name='User1',
+                                             is_active=True)
+        self.user2 = User.objects.create_user('test321@mail.com',
+                                              '12345',
+                                              name='User2',
+                                              is_active=True)
+        self.admin = User.objects.create_superuser('admin@gmail.com',
+                                                   '1234',
+                                                   name='Admin1')
+        self.user_token = Token.objects.create(user=self.user)
+        self.user2_token = Token.objects.create(user=self.user2)
+        self.admin_token = Token.objects.create(user=self.admin)
+        self.product1 = Product.objects.create(title='Apple Iphone 12',
+                                               description='Норм тел',
+                                               price=100000)
+        self.product2 = Product.objects.create(title='Apple Macbook Pro',
+                                               description='Норм ноут',
+                                               price=180000)
+        self.product3 = Product.objects.create(title='Samsung Galaxy S21',
+                                               description='Норм тел',
+                                               price=70000)
+        self.product4 = Product.objects.create(title='Xiomi Mi 11',
+                                               description='Норм тел',
+                                               price=40000)
+        self.review1 = ProductReview.objects.create(product=self.product1,
+                                                    author=self.user,
+                                                    text='qwerty',
+                                                    rating=3)
+        self.review2 = ProductReview.objects.create(product=self.product2,
+                                                    author=self.user,
+                                                    text='zxczxczxc',
+                                                    rating=5)
+        self.payload = {
+            'product':self.product3.id,
+            'text': 'Cool!',
+            'rating': 4
+        }
+
+
+
+    def test_create_by_ananymous(self):
+        client = self.client_class()
+        url = reverse('productreview-list')
+        response = client.post(url, data=self.payload)
+        self.assertEqual(response.status_code, 401)
+
+    def test_create_by_regular_user(self):
+        client = self.client_class()
+        client.credentials(HTTP_AUTHORIZATION=f'Token {self.user_token.key}')
+        url = reverse('productreview-list')
+        response = client.post(url, data=self.payload)
+        self.assertEqual(response.status_code, 201)
+
+    def test_create_duplicated_review(self):
+        data = self.payload.copy()
+        data['product'] = self.product1.id
+        client = self.client_class()
+        client.credentials(HTTP_AUTHORIZATION=f'Token {self.user_token.key}')
+        url = reverse('productreview-list')
+        response = client.post(url, data=data)
+        self.assertEqual(response.status_code, 400)
+        self.assertIn('product', response.data)
+
+    def test_create_review_with_wrong_rating_400(self):
+        '''Тест провераяет создание отзыва с рейтингом выше пяти. Ожидаемый статус : 400'''
+        data = self.payload.copy()
+        data['rating'] = 100
+        client = self.client_class()
+        client.credentials(HTTP_AUTHORIZATION=f'Token {self.user_token.key}')
+        url = reverse('productreview-list')
+        response = client.post(url, data=data)
+        self.assertEqual(response.status_code, 400)
+        self.assertIn('rating', response.data)
+
+
+
+    def test_create_review_with_negative_rating_400(self):
+        '''Тест провераяет создание отзыва с рейтингом ниже пяти. Ожидаемый статус : 400'''
+        data = self.payload.copy()
+        data['rating'] = -10
+        client = self.client_class()
+        client.credentials(HTTP_AUTHORIZATION=f'Token {self.user_token.key}')
+        url = reverse('productreview-list')
+        response = client.post(url, data=data)
+        self.assertEqual(response.status_code, 400)
+        self.assertIn('rating', response.data)
+
+
+    def test_create_review_with_normal_rating_201(self):
+        '''Тест провераяет создание отзыва с рейтингом ниже пяти. Ожидаемый статус : 400'''
+        data = self.payload.copy()
+        data['rating'] = 4
+        client = self.client_class()
+        client.credentials(HTTP_AUTHORIZATION=f'Token {self.user_token.key}')
+        url = reverse('productreview-list')
+        response = client.post(url, data=data)
+        self.assertEqual(response.status_code, 201)
+        self.assertIn('rating', response.data)
+
+
+    def test_update_by_anonymous_user(self):
+        client = APIClient()
+        url = reverse('productreview-detail', args=(self.review1.id, ))
+        data = {'text': 'new_text'}
+        response = client.patch(url, data)
+        self.assertEqual(response.status_code, 401)
+
+
+    def test_update_as_not_author(self):
+        client = APIClient()
+        client.credentials(HTTP_AUTHORIZATION=f'Token {self.user2_token.key}')
+        url = reverse('productreview-detail', args=(self.review1.id,))
+        data = {'text': 'new_text'}
+        response = client.patch(url, data)
+        self.assertEqual(response.status_code, 403)
+
+    def tes_update_as_admin(self):
+        client = APIClient()
+        client.credentials(HTTP_AUTHORIZATION=f'Token {self.admin_token.key}')
+        url = reverse('productreview-detail', args=(self.review1.id,))
+        data = {'text': 'new_text'}
+        response = client.patch(url, data)
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual('new_text', response.data['text'])
+
+    def tes_update_as_author(self):
+        client = APIClient()
+        client.credentials(HTTP_AUTHORIZATION=f'Token {self.user_token.key}')
+        url = reverse('productreview-detail', args=(self.review1.id,))
+        data = {'text': 'new_text'}
+        response = client.patch(url, data)
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual('new_text', response.data['text'])
+
+
 # TDD - Test Driven Development
 # TODO: pytest
+# TODO: Точка остановки(BreakPoint)
 
 
+# putest,
+# фабрика данных (test factory)
+# Factory boy
+# mpodel bakery
+# фикстурв
