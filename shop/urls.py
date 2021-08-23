@@ -31,18 +31,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/v1/', include(router.urls)),
     path('api/v1/', include('account.urls')),
-    # path('api/v1/products/', ProductViewSet.as_view(
-    #     {'post': 'create', 'get': 'list'}
-    # )),
-    # path('api/v1/products/<int:pk>/', ProductViewSet.as_view(
-    #     {'get': 'retrieve', 'put': 'update',
-    #      'patch': 'partial_update', 'delete': 'destroy'}
-    # )),
-    # path('api/v1/reviews/', ReviewViewSet.as_view(
-    #     {'post': 'create', 'get': 'list'}
-    # )),
-    # path('api/v1/reviews/<int:pk>/', ReviewViewSet.as_view(
-    #     {'get': 'retrieve', 'put': 'update',
-    #      'patch': 'partial_update', 'delete': 'destroy'}
-    # )),    path('api/v1/', include('account.urls'))
+    path('api/v1/orders/', include('order.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
