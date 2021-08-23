@@ -22,10 +22,23 @@ class Order(models.Model):
                              on_delete=models.RESTRICT,
                              related_name='orders')
     status = models.CharField(max_length=20,
-                              choices=STATUS_CHOICES)
+                              choices=STATUS_CHOICES,
+                              default='open',)
 
     products = models.ManyToManyField(Product,
                                       through='OrderItem')
+
+    @property
+    def total(self):
+        items = self.items.values('product__price', 'quantity')
+        total = 0
+        for item in items:
+            total += item['product__price'] * item['quantity']
+        return total
+
+
+    def __str__(self):
+        return f'Заказ № {self.id} от {self.created_at.strftime("%d-%m-%Y %H:%M")}'
 
     class Meta:
         db_table = 'orders'
