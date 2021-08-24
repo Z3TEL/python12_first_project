@@ -12,6 +12,7 @@ class OrderAdminForm(forms.ModelForm):
 
 class OrderItemsInLine(admin.TabularInline):
     model = OrderItem
+    extra = 1
 
 
 
@@ -46,8 +47,8 @@ class OrderAdmin(admin.ModelAdmin):
     ]
     exclude = ('products',)
     form = OrderAdminForm
-    readonly_fields = ['user', 'total', 'created_at']
-    list_display = ['id', 'status', 'total', 'created_at']
+    readonly_fields = ['user', 'total_sum', 'created_at']
+    list_display = ['id', 'status', 'total_sum', 'created_at']
     list_filter = ['status', TotalSumFilter]
     search_fields = ['products__title']
 
@@ -55,6 +56,17 @@ class OrderAdmin(admin.ModelAdmin):
         if not change:
             obj.user = request.user
         super().save_model(request, obj, form, change)
+
+    def save_formset(self, request, form, formset, change):
+        total = 0
+        for inline_form in formset:
+            print(dir(inline_form))
+            price = inline_form.cleaned_data['product'].price
+            quantity = inline_form.cleaned_data['quantity']
+            total += price * quantity
+        form.instance.total_sum = total
+        form.instance.save()
+        formset.save()
 
 # TODO: Исправить сохранение total_sum
 

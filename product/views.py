@@ -134,7 +134,6 @@ class ReviewViewSet(mixins.CreateModelMixin,
 
 
 
-# TODO: Тесты
 # TODO: Ограничение кол-во запросов
 # TODO: Документация
 # TODO: README

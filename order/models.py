@@ -17,7 +17,7 @@ class Order(models.Model):
                                     decimal_places=2,
                                     default=0)
 
-    created_at  = models.DateTimeField(auto_now_add=True)
+    created_at = models.DateTimeField(auto_now_add=True)
     user = models.ForeignKey(User,
                              on_delete=models.RESTRICT,
                              related_name='orders')
@@ -36,12 +36,12 @@ class Order(models.Model):
             total += item['product__price'] * item['quantity']
         return total
 
-
     def __str__(self):
         return f'Заказ № {self.id} от {self.created_at.strftime("%d-%m-%Y %H:%M")}'
 
     class Meta:
         db_table = 'orders'
+        ordering = ['-created_at']
 
 
 class OrderItem(models.Model):
