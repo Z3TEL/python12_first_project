@@ -56,7 +56,7 @@ class User(AbstractBaseUser):
 
     def send_activation_email(self):
         massage =  f"""
-        Блогадарим что вы зарешестрировались на нашем сайте.
+        Блогадарим что вы зареuестрировались на нашем сайте.
         Ваш код активации : {self.activation_code}
         """
         send_mail('Активация акаунта',

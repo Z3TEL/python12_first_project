@@ -69,8 +69,5 @@ class OrderAdmin(admin.ModelAdmin):
         formset.save()
 
 # TODO: Исправить сохранение total_sum
-
-
-
 admin.site.register(Order, OrderAdmin)
 admin.site.register(OrderItem)
