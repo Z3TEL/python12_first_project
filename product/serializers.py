@@ -8,11 +8,11 @@ class ProductsSerializer(serializers.ModelSerializer):
         fields = ('id', 'title', 'description', 'price')
 
 
-
 class ProductDetailsSerializer(serializers.ModelSerializer):
     class Meta:
         model = Product
         fields = ('id', 'title', 'description', 'price', 'image')
+
 
 class CreateProductSerializer(serializers.ModelSerializer):
     class Meta:
@@ -37,8 +37,7 @@ class ReviewSerializer(serializers.ModelSerializer):
     def validate_product(self, product):
         request = self.context.get('request')
         user = request.user
-        if self.Meta.model.objects.filter(product=product,
-                                          author=user).exists():
+        if self.Meta.model.objects.filter(product=product, author=user).exists():
             raise serializers.ValidationError('Вы уже отавляли отзыв на этот продукт')
         return product
 
